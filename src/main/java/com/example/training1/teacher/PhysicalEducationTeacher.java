@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Qualifier("physicalEducation")
-public class PhysicalEducation implements Teacher{
+public class PhysicalEducationTeacher implements Teacher{
     @Override
     public String pleaseLearn() {
         return "Make 10 push-ups a day!";
