@@ -30,6 +30,7 @@ public class Training1Application {
 //            create Teachers
 //            createTeacher(teacherDAO, "Williams", "Henry");
 //            createTeacher(teacherDAO, "Jackson", "Michael");
+//            createTeacher(teacherDAO, "Johnson", "Alexander");
 
 //            create Subjects
 //            createSubject(subjectDAO, "maths");
@@ -58,10 +59,38 @@ public class Training1Application {
 //            listSubjectsWithGivenName(subjectDAO, "maths");
 
 //            update cells in a DB
-            updateStudent(studentDAO, 1, "Evans");
-            updateTeacher(teacherDAO, 1, "Robinson");
-            updateGrade(gradeDAO, 1, 1);
+//            updateStudent(studentDAO, 1, "Evans");
+//            updateTeacher(teacherDAO, 1, "Robinson");
+//            updateGrade(gradeDAO, 1, 1);
+
+//            delete objects from a table in a DB
+//            It is only possible to delete objects, which are not connected to another table of a DB by a foreign key
+//            deleteStudent(studentDAO, 6);
+//            deleteTeacher(teacherDAO, 3);
+//            deleteGrade(gradeDAO, 1);
+
+//            delete all objects from a table in a DB
+//            nothing else I could delete-all -> rest of the tables are connected with a foreign key
+//            deleteAllGrades(gradeDAO);
         };
+    }
+
+    private void deleteAllGrades(GradeDAO gradeDAO) {
+        int numRowsDeleted = gradeDAO.deleteAllGrades();
+        System.out.println("Deleted "+ numRowsDeleted + " rows");
+    }
+
+    private void deleteGrade(GradeDAO gradeDAO, int id) {
+        gradeDAO.deleteGrade(id);
+    }
+
+    private void deleteTeacher(TeacherDAO teacherDAO, int id) {
+        teacherDAO.deleteTeacher(id);
+    }
+
+
+    private void deleteStudent(StudentDAO studentDAO, int id) {
+        studentDAO.deleteStudent(id);
     }
 
     private void updateGrade(GradeDAO gradeDAO, int id, int grade) {

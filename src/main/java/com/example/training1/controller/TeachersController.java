@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
- @RequestMapping("teachers")
+ @RequestMapping("/teachers")
 public class TeachersController {
     private final Teacher englishTeacher, mathsTeacher, physicalEducationTeacher;
 

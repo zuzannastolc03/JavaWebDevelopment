@@ -10,4 +10,5 @@ public interface TeacherDAO {
     List<Teacher> findAll();
     List<Teacher> findByLastName(String lastName);
     void updateTeacher(Teacher theTeacher);
+    void deleteTeacher(Integer id);
 }

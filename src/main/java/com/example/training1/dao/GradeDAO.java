@@ -9,4 +9,6 @@ public interface GradeDAO {
     Grade findById(Integer id);
     List<Grade> findAll();
     void updateGrade(Grade theGrade);
+    void deleteGrade(Integer id);
+    int deleteAllGrades();
 }

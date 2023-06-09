@@ -1,7 +1,6 @@
 package com.example.training1.dao;
 
 import com.example.training1.entity.Grade;
-import com.example.training1.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
@@ -10,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public class GradeDAOImpl implements GradeDAO{
+public class GradeDAOImpl implements GradeDAO {
     private EntityManager entityManager;
 
     public GradeDAOImpl(EntityManager entityManager) {
@@ -38,5 +37,18 @@ public class GradeDAOImpl implements GradeDAO{
     @Transactional
     public void updateGrade(Grade theGrade) {
         entityManager.merge(theGrade);
+    }
+
+    @Override
+    @Transactional
+    public void deleteGrade(Integer id) {
+        Grade tempGrade = findById(id);
+        entityManager.remove(tempGrade);
+    }
+
+    @Override
+    @Transactional
+    public int deleteAllGrades() {
+        return entityManager.createQuery("Delete from Grade").executeUpdate();
     }
 }

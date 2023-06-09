@@ -45,4 +45,11 @@ public class TeacherDAOImpl implements TeacherDAO{
     public void updateTeacher(Teacher theTeacher) {
         entityManager.merge(theTeacher);
     }
+
+    @Override
+    @Transactional
+    public void deleteTeacher(Integer id) {
+        Teacher tempTeacher = findById(id);
+        entityManager.remove(tempTeacher);
+    }
 }
