@@ -18,7 +18,6 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    @Transactional
     public void save(Student theStudent) {
         entityManager.persist(theStudent);
     }
@@ -42,13 +41,11 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    @Transactional
     public void updateStudent(Student theStudent) {
         entityManager.merge(theStudent);
     }
 
     @Override
-    @Transactional
     public void deleteStudent(Integer id) {
 //        this is the same, but we already have a method created
 //        entityManager.find(Student.class, id);

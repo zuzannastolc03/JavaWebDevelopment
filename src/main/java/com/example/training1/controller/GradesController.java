@@ -14,7 +14,7 @@ import java.util.List;
 public class GradesController {
     private List<Grade> listOfGrades;
     @PostConstruct
-    public void loadStudents(){
+    public void loadGrades(){
         listOfGrades = new ArrayList<>();
         listOfGrades.add(new Grade(1, 1, 1, 1));
         listOfGrades.add(new Grade(2, 2, 2, 2));

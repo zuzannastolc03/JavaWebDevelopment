@@ -17,7 +17,6 @@ public class SubjectDAOImpl implements SubjectDAO{
     }
 
     @Override
-    @Transactional
     public void save(Subject theSubject) {
         entityManager.persist(theSubject);
     }
