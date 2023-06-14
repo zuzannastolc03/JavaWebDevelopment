@@ -1,38 +1,42 @@
 package com.example.training1.service;
 
-import com.example.training1.dao.SubjectDAO;
+import com.example.training1.dao.SubjectRepository;
 import com.example.training1.entity.Subject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SubjectServiceImpl implements SubjectService{
-    SubjectDAO subjectDAO;
-    SubjectServiceImpl(SubjectDAO theSubjectDAO){
-        subjectDAO = theSubjectDAO;
+    SubjectRepository subjectRepository;
+    SubjectServiceImpl(SubjectRepository theSubjectRepository){
+        subjectRepository = theSubjectRepository;
     }
 
     @Override
-    @Transactional
     public void save(Subject theSubject) {
-        subjectDAO.save(theSubject);
+        subjectRepository.save(theSubject);
     }
 
     @Override
     public Subject findById(Integer id) {
-        return subjectDAO.findById(id);
+        Optional<Subject> result = subjectRepository.findById(id);
+        Subject theSubject = null;
+        if(result.isPresent()){
+            theSubject=  result.get();
+        }
+        return theSubject;
     }
 
     @Override
     public List<Subject> findAll() {
-        return subjectDAO.findAll();
+        return subjectRepository.findAll();
     }
 
     @Override
     public List<Subject> findByName(String name) {
-        return subjectDAO.findByName(name);
+        return subjectRepository.findByName(name);
     }
 }

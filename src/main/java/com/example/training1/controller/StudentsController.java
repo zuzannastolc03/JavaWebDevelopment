@@ -39,4 +39,20 @@ public class StudentsController {
         studentService.save(theStudent);
         return theStudent;
     }
+
+//    @PutMapping(value = {"", "/"})
+//    public Student updateStudent(@RequestBody Student theStudent){
+//        studentService.updateStudent(theStudent);
+//        return theStudent;
+//    }
+
+//    @DeleteMapping("/{studentId}")
+//    public String deleteStudent(@PathVariable("studentId") int studentId){
+//        Student theStudent = studentService.findById(studentId);
+//        if(theStudent == null){
+//            throw new NotFoundException("Student ID not found: " + studentId);
+//        }
+//        studentService.deleteStudent(studentId);
+//        return "Deleted record at id: " + studentId;
+//    }
 }

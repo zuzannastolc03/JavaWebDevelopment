@@ -1,14 +1,15 @@
-package com.example.training1.service;
+package com.example.training1.dao;
 
 import com.example.training1.entity.Student;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface StudentService {
-    void save(Student theStudent);
-    Student findById(Integer id);
-    List<Student> findAll();
+public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<Student> findByLastName(String lastName);
+
 //    void updateStudent(Student theStudent);
+
 //    void deleteStudent(Integer id);
 }
+
