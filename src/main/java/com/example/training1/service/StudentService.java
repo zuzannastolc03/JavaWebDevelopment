@@ -9,6 +9,6 @@ public interface StudentService {
     Student findById(Integer id);
     List<Student> findAll();
     List<Student> findByLastName(String lastName);
-//    void updateStudent(Student theStudent);
-//    void deleteStudent(Integer id);
+    void updateStudent(Student theStudent);
+    void deleteStudent(Integer id);
 }

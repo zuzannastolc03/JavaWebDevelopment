@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
     StudentRepository studentRepository;
-    StudentServiceImpl(StudentRepository theStudentRepository){
+
+    StudentServiceImpl(StudentRepository theStudentRepository) {
         studentRepository = theStudentRepository;
     }
 
@@ -23,8 +24,8 @@ public class StudentServiceImpl implements StudentService{
     public Student findById(Integer id) {
         Optional<Student> result = studentRepository.findById(id);
         Student theStudent = null;
-        if(result.isPresent()){
-            theStudent =  result.get();
+        if (result.isPresent()) {
+            theStudent = result.get();
         }
         return theStudent;
     }
@@ -39,13 +40,13 @@ public class StudentServiceImpl implements StudentService{
         return studentRepository.findByLastName(lastName);
     }
 
-//    @Override
-//    public void updateStudent(Student theStudent) {
-//        studentRepository.updateStudent(theStudent);
-//    }
+    @Override
+    public void updateStudent(Student theStudent) {
+        studentRepository.save(theStudent);
+    }
 
-//    @Override
-//    public void deleteStudent(Integer id) {
-//        studentRepository.deleteStudent(id);
-//    }
+    @Override
+    public void deleteStudent(Integer id) {
+        studentRepository.deleteById(id);
+    }
 }

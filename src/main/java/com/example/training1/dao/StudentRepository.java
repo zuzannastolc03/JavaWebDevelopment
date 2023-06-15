@@ -7,9 +7,5 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<Student> findByLastName(String lastName);
-
-//    void updateStudent(Student theStudent);
-
-//    void deleteStudent(Integer id);
 }
 
