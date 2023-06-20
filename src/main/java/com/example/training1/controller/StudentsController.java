@@ -1,11 +1,16 @@
 package com.example.training1.controller;
 import com.example.training1.entity.Student;
 import com.example.training1.service.StudentService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+// When I want to work with API
+//@RestController
+// When I want to use thymeleaf
+@Controller
 @RequestMapping("/students")
 public class StudentsController {
     StudentService studentService;
@@ -14,8 +19,12 @@ public class StudentsController {
     }
 
     @GetMapping(value = {"", "/"})
-    public String students(){
-        return "Welcome to students section!";
+    public String students(Model theModel){
+        theModel.addAttribute("theDate", new java.util.Date());
+        // this will redirect to helloWorld.html, when working with thymeleaf
+        return "helloWorld";
+        // this works when working with API
+//        return "Welcome to Students section!";
     }
 
     @GetMapping("/list")
